@@ -1,6 +1,8 @@
 import { useState } from "react";
+
 import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
+import Search from "./components/Search";
 
 import "./App.css";
 
@@ -9,24 +11,26 @@ function App() {
     {
       id: 1,
       text: "Criar funcionalidades",
-      categody: "Trabalho",
+      category: "Trabalho",
       isCompleted: false,
     },
     {
       id: 2,
       text: "Ir para a academia",
-      categody: "Pessoal",
+      category: "Pessoal",
 
       isCompleted: false,
     },
     {
       id: 3,
       text: "Estudar React",
-      categody: "Pessoal",
+      category: "Pessoal",
 
       isCompleted: false,
     },
   ]);
+
+  const [search, setSearch] = useState("");
 
   // função cria um novo array com id aleatório
   const addTodo = (text, category) => {
@@ -43,7 +47,7 @@ function App() {
     setTodos(newTodos);
   };
 
-  // função para remover todos
+  // função para remover tarefas
   const removeTodos = (id) => {
     const newTodos = [...todos];
     const filteredTodos = newTodos.filter((todo) =>
@@ -52,13 +56,32 @@ function App() {
     setTodos(filteredTodos);
   };
 
+  // função para completar tarefa
+  const completeTodo = (id) => {
+    const newTodos = [...todos];
+    newTodos.map((todo) =>
+      todo.id === id ? (todo.isCompleted = !todo.isCompleted) : todo
+    );
+    setTodos(newTodos);
+  };
+
   return (
     <div className="app">
       <h1>Lista de Tarefas</h1>
+      <Search search={search} setSearch={setSearch} />
       <div className="todo-list">
-        {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} removeTodos={removeTodos} />
-        ))}
+        {todos
+          .filter((todo) =>
+            todo.text.toLowerCase().includes(search.toLowerCase())
+          )
+          .map((todo) => (
+            <Todo
+              key={todo.id}
+              todo={todo}
+              removeTodos={removeTodos}
+              completeTodo={completeTodo}
+            />
+          ))}
       </div>
       <TodoForm addTodo={addTodo} />
     </div>
