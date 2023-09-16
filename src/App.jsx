@@ -28,6 +28,21 @@ function App() {
     },
   ]);
 
+  // função cria um novo array com id aleatório
+  const addTodo = (text, category) => {
+    const newTodos = [
+      ...todos,
+      {
+        id: Math.floor(Math.random() * 1000),
+        text,
+        category,
+        isCompleted: false,
+      },
+    ];
+
+    setTodos(newTodos);
+  };
+
   return (
     <div className="app">
       <h1>Lista de Tarefas</h1>
@@ -36,7 +51,7 @@ function App() {
           <Todo key={todo.id} todo={todo} />
         ))}
       </div>
-      <TodoForm />
+      <TodoForm addTodo={addTodo} />
     </div>
   );
 }

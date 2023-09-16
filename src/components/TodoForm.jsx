@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TodoForm = () => {
+const TodoForm = ({ addTodo }) => {
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("");
 
@@ -9,11 +9,11 @@ const TodoForm = () => {
     e.preventDefault();
     // validação para dados nulos
     if (!value || !category) return;
-    // enviar os valores do input pra api
+    // adiciona os todos
+    addTodo(value, category);
     // limpa os campos
     setValue("");
     setCategory("");
-    console.log(value, category);
   };
 
   return (
