@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 
 const Todo = ({ todo, removeTodos, completeTodo }) => {
   return (
@@ -22,6 +22,13 @@ const Todo = ({ todo, removeTodos, completeTodo }) => {
       </div>
     </div>
   );
+};
+
+Todo.propTypes = {
+  todo: PropTypes.string.isRequired, 
+  removeTodos: PropTypes.string.isRequired, 
+  completeTodo: PropTypes.string.isRequired, 
+
 };
 
 export default Todo;

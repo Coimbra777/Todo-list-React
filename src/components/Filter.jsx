@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Filter = ({ filter, setFilter, setSort }) => {
   return (
     <div className="filter">
@@ -20,5 +22,12 @@ const Filter = ({ filter, setFilter, setSort }) => {
     </div>
   );
 };
+
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.string.isRequired,
+  setSort: PropTypes.string.isRequired,
+};
+
 
 export default Filter;
