@@ -1,6 +1,7 @@
 # To-Do List App
 
 Este é um simples aplicativo de lista de tarefas construído com React, Vite e npm.
+
 ![screencapture-localhost-5173-Todo-list-React-2024-01-13-11_07_43](https://github.com/Coimbra777/Todo-list-React/assets/103074944/ab204153-d03f-46ea-8e12-f0e6f0e7cde0)
 
 ## Funcionalidades
