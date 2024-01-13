@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  justify-content: center;
   font-family: "IBM Plex Mono", sans-serif;
   background-color: #f4f4f4;
   padding: 30px;
@@ -6,13 +8,11 @@ body {
   /* background-image: url();
   background-position: center;
   background-size: cover; */
-  display: flex;
-  justify-content: center;
-  
 }
 
 .app {
-  max-width: 600px;
+  max-width: 100%;
+  width: 600px;
   margin: 0;
   background-color: #ddd;
   padding: 20px 30px;
